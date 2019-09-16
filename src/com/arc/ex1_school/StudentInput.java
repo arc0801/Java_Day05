@@ -7,25 +7,26 @@ public class StudentInput {
 	//메서드명은 deleteStudent
 	//확인은 4번하고 2번 눌러서 전체조회로~
 
-	public Student [] deleteStudent(Student [] students,int select) {
+	public Student [] deleteStudent(Student [] students) {
 		Scanner sc = new Scanner(System.in);
 
 
 		System.out.println("삭제할 학생의 번호를 입력하세요.");
 		int n=sc.nextInt();
-		int i = 0;
+		int index = 0;
 
-		for(i=0;i<students.length;i++) {
-			if(n==students[i].num) {
+		for(index=0;index<students.length;index++) {
+			if(n==students[index].num) {
 
 				break;
 			}//if
 		}//for
 
-		Student [] student2 = new Student [select-1];
-
-		for(int idx=0;idx<students.length;idx++) {
-			if(i==idx) {
+		Student [] student2 = new Student [students.length-1];
+		int idx = 0;
+		
+		for(int i=0;i<students.length;i++) {
+			if(index==i) {
 				continue;
 
 			}//if
@@ -33,7 +34,6 @@ public class StudentInput {
 			idx++;
 
 		}//for
-
 
 
 		students = student2;
